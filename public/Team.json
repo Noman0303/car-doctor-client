@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "expertise": "Automotive Engineering, Vehicle Design",
+        "image": "https://i.ibb.co.com/bvyJvhh/John-Doe.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "expertise": "Car Manufacturing, Production Management",
+        "image": "https://i.ibb.co.com/Nt1x4VZ/Jane-Smith.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Alice Brown",
+        "expertise": "Vehicle Safety, Performance Testing",
+        "image": "https://i.ibb.co.com/WWVWnm6/Alice-Brown.jpg"
+    }
+]

@@ -1,0 +1,50 @@
+[
+    {
+        "id": "01",
+        "name": "Car Engine Plug",
+        "image_url": "https://i.ibb.co.com/94DZcbJ/Car-Engine-Plug.png",
+        "price": "20.00",
+        "rating": 5,
+        "description": "High-quality car engine plug for reliable performance and durability."
+    },
+    {
+        "id": "02",
+        "name": "Car Air Filter",
+        "image_url": "https://i.ibb.co.com/3pGfzw7/Car-Air-Filter.png",
+        "price": "20.00",
+        "rating": 5,
+        "description": "Efficient car air filter to keep your engine clean and running smoothly."
+    },
+    {
+        "id": "03",
+        "name": "Car Brake Disc",
+        "image_url": "https://i.ibb.co.com/qm5LVdt/Car-Brake-Disc.png",
+        "price": "20.00",
+        "rating": 5,
+        "description": "Durable car brake disc for improved braking performance and safety."
+    },
+    {
+        "id": "04",
+        "name": "Car Suspension Spring",
+        "image_url": "https://i.ibb.co.com/dm6VRBJ/Car-Suspension-Spring.png",
+        "price": "20.00",
+        "rating": 5,
+        "description": "Premium suspension spring for enhanced comfort and handling."
+    },
+    {
+        "id": "05",
+        "name": "Car Tires",
+        "image_url": "https://i.ibb.co.com/fDL2Qs0/Car-Tires.png",
+        "price": "20.00",
+        "rating": 5,
+        "description": "Durable car tires with excellent traction and long-lasting performance."
+    },
+    {
+        "id": "06",
+        "name": "Car Battery",
+        "image_url": "https://i.ibb.co.com/gFgrbRt/Car-Battery.png",
+        "price": "20.00",
+        "rating": 5,
+        "description": "Reliable car battery to power all your vehicle's electrical components."
+    }
+]

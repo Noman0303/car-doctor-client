@@ -1,0 +1,158 @@
+[
+    {
+        "_id": "635a0c0b64a6d231228942ae",
+        "service_id": "04",
+        "title": "Engine Oil Change",
+        "img": "https://i.ibb.co/T2cpBd5/888.jpg",
+        "price": "20.00",
+        "description": "Ensure your engine runs smoothly and efficiently with our professional oil change service. We use high-quality engine oil to maximize performance and prolong engine life.",
+        "facility": [
+            {
+                "name": "Instant Car Services",
+                "details": "Quick and reliable service to keep you on the road without delay."
+            },
+            {
+                "name": "24/7 Quality Service",
+                "details": "Available anytime to provide high-quality maintenance and support."
+            },
+            {
+                "name": "Easy Customer Service",
+                "details": "Friendly and professional staff ready to assist with your needs."
+            },
+            {
+                "name": "Quality Cost Service",
+                "details": "Affordable prices with premium-grade materials and service."
+            }
+        ]
+    },
+    {
+        "_id": "635a0c0b64a6d231228942af",
+        "service_id": "05",
+        "title": "Battery Charge",
+        "img": "https://i.ibb.co/ydCbDN3/5555.jpg",
+        "price": "20.00",
+        "description": "Recharge your car battery efficiently and safely. Our experts ensure optimal performance and extended battery life.",
+        "facility": [
+            {
+                "name": "Instant Car Services",
+                "details": "Quick and effective charging services for your convenience."
+            },
+            {
+                "name": "24/7 Quality Service",
+                "details": "Round-the-clock support to keep your vehicle powered."
+            },
+            {
+                "name": "Easy Customer Service",
+                "details": "Experienced professionals to guide and assist you."
+            },
+            {
+                "name": "Quality Cost Service",
+                "details": "Competitive pricing for top-notch battery services."
+            }
+        ]
+    },
+    {
+        "_id": "635b591a1dafe382a9da8c96",
+        "service_id": "01",
+        "title": "Full Car Repair",
+        "img": "https://i.ibb.co/R6Z2nFM/55.jpg",
+        "price": "200.00",
+        "description": "Comprehensive car repair services covering all major and minor issues. Trust our team to restore your vehicle to top condition.",
+        "facility": [
+            {
+                "name": "Instant Car Services",
+                "details": "Prompt and efficient solutions for all car repairs."
+            },
+            {
+                "name": "24/7 Quality Service",
+                "details": "Reliable service any time you need it."
+            },
+            {
+                "name": "Easy Customer Service",
+                "details": "Customer-focused approach for a seamless experience."
+            },
+            {
+                "name": "Quality Cost Service",
+                "details": "Affordable solutions with uncompromising quality."
+            }
+        ]
+    },
+    {
+        "_id": "635b5afc1dafe382a9da8c98",
+        "service_id": "02",
+        "title": "Engine Repair",
+        "img": "https://i.ibb.co/5MvmD2g/88.jpg",
+        "price": "150.00",
+        "description": "Specialized engine repair services to address performance issues, improve fuel efficiency, and ensure reliability.",
+        "facility": [
+            {
+                "name": "Instant Car Services",
+                "details": "Swift diagnostics and expert repairs for your engine."
+            },
+            {
+                "name": "24/7 Quality Service",
+                "details": "Dependable service to resolve engine problems anytime."
+            },
+            {
+                "name": "Easy Customer Service",
+                "details": "Guidance and support throughout the repair process."
+            },
+            {
+                "name": "Quality Cost Service",
+                "details": "Cost-effective solutions for durable engine performance."
+            }
+        ]
+    },
+    {
+        "_id": "635b5b691dafe382a9da8c99",
+        "service_id": "03",
+        "title": "Automatic Services",
+        "img": "https://i.ibb.co/wh7t3N3/555.jpg",
+        "price": "30.00",
+        "description": "Enhance your vehicle's performance with our cutting-edge automatic services, designed to optimize every aspect of your car.",
+        "facility": [
+            {
+                "name": "Instant Car Services",
+                "details": "Automated solutions for faster and more precise results."
+            },
+            {
+                "name": "24/7 Quality Service",
+                "details": "State-of-the-art technology available at all hours."
+            },
+            {
+                "name": "Easy Customer Service",
+                "details": "Hassle-free service with expert assistance."
+            },
+            {
+                "name": "Quality Cost Service",
+                "details": "Advanced services at a price that fits your budget."
+            }
+        ]
+    },
+    {
+        "_id": "635b5ba51dafe382a9da8c9a",
+        "service_id": "06",
+        "title": "Electrical System",
+        "img": "https://i.ibb.co/KzCG8qr/8888.jpg",
+        "price": "20.00",
+        "description": "Professional care for your car's electrical systems, ensuring everything from lighting to sensors works perfectly.",
+        "facility": [
+            {
+                "name": "Instant Car Services",
+                "details": "Quick fixes and upgrades for all electrical components."
+            },
+            {
+                "name": "24/7 Quality Service",
+                "details": "Always ready to assist with electrical issues."
+            },
+            {
+                "name": "Easy Customer Service",
+                "details": "Knowledgeable support to answer your questions."
+            },
+            {
+                "name": "Quality Cost Service",
+                "details": "Affordable solutions for superior electrical system maintenance."
+            }
+        ]
+    }
+]
