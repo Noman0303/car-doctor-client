@@ -5,13 +5,16 @@ import google from '../../assets/icons/google.svg'
 import login from '../../assets/images/login/login.svg'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../Providers/AuthProvider'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
 
 const Login = () => {
 
-    const { signInUser } = useContext(AuthContext);
+    const { signInUser, signInWithGoogle } = useContext(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -22,12 +25,27 @@ const Login = () => {
 
         signInUser(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                console.log (result.user);
+                toast.success('Login successful! Welcome!', { autoClose: 3000 });
             })
             .catch(error => {
                 console.error(error);
+                toast.error('Login not successful. Please try again!', { autoClose: 3000 });
             })
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success('Google Login successful! Welcome!', { autoClose: 3000 })
+            })
+            .catch(error => {
+                console.error(error);
+                toast.error('Google Login failed. Please try again!', { autoClose: 3000 });
+            })
+
     }
 
 
@@ -54,9 +72,9 @@ const Login = () => {
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Confirm Password</span>
+                                <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="Your password" className="input input-bordered" required />
+                            <input type="password" name='password' placeholder="Your password" className="input input-bordered" required />
 
                         </div>
                         <div className="form-control mt-6">
@@ -67,7 +85,8 @@ const Login = () => {
                     <div className='mt-7 flex justify-center gap-4'>
                         <img className='bg-[#F5F5F8] rounded-full w-14 h-14 p-3' src={facebook} alt="" />
                         <img className='bg-[#F5F5F8] rounded-full w-14 h-14 p-3' src={linkedin} alt="" />
-                        <img className='bg-[#F5F5F8] rounded-full w-14 h-14 p-3' src={google} alt="" />
+                        <button onClick={handleGoogleSignIn}><img className='bg-[#F5F5F8] rounded-full w-14 h-14 p-3' src={google} alt="" /></button>
+
                     </div>
                     <p className='mt-12'>New Here! Please
                         <Link to='/register'>
@@ -75,13 +94,10 @@ const Login = () => {
                         </Link>
                     </p>
                 </div>
-
-
-
-
             </div>
+            
         </div>
     )
 }
 
-export default Login
+export default Login;

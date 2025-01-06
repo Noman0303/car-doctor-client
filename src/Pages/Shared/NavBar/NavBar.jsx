@@ -1,16 +1,41 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../../../assets/logo.svg'
+import { AuthContext } from '../../../Providers/AuthProvider'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const NavBar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log('User logged out successfully');  
+                toast.success('Log Out successful!', { autoClose: 3000 });
+            })
+            .catch(error => {
+                console.error(error); 
+            })
+
+    }
+
     const navlink = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><a >About</a></li>
-        <li><a >Services</a></li>
         <li><NavLink to='/blog'>Blog</NavLink></li>
-        <li><a >Contact</a></li>
+        <li><a className=" text-[#FF3811] ">Appointment</a></li>
+        {
+            user?.email? 
+            <>
+            <li><NavLink to='/bookings'>My Bookings</NavLink></li>
+            </> :
+            <></>
+        }
     </>
+
 
 
 
@@ -39,7 +64,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <Link to='/'>
-                <img src={logo} alt="" />
+                    <img src={logo} alt="" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -47,11 +72,40 @@ const NavBar = () => {
                     {navlink}
                 </ul>
             </div>
-            <div className="navbar-end gap-2 flex flex-col-reverse md:flex-row">
-                <a className="btn btn-outline text-[#FF3811] ">Appointment</a>
-                <NavLink to='/login'><button className="btn btn-outline text-[#FF3811]" >Login</button></NavLink>
-                <NavLink to='/register'><button className="btn btn-outline text-[#FF3811]" >Sign Up</button></NavLink>
+            <div className="navbar-end">
+                {user ? (
+                    <div className="flex items-center space-x-4">
+                        <span
+                            className="relative"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                        >
+                            <img
+                                src={user.photoURL}
+                                className="rounded-full w-8 h-auto inline-block"
+                                alt="User profile"
+                            />
+                            {isHovered && (
+                                <span className="absolute right-8 md:right-10 lg:right-10 w-auto p-1 text-xs text-white bg-black rounded-md">
+                                    {user.displayName}
+                                </span>
+                            )}
+                        </span>
+                        <button
+                            className="btn btn-sm btn-outline lg:btn-base lg:text-lg"
+                            onClick={handleLogOut}
+                        >
+                            Log Out
+                        </button>
+                    </div>
+                ) : (
+                    <div className='flex gap-2 flex-col md:flex-row'>
+                        <Link to="/login"><button className="btn btn-sm btn-outline lg:btn-base lg:text-lg">Log in</button></Link>
+                        <Link to="/register"><button className="btn btn-sm btn-outline lg:btn-base lg:text-lg">sign Up</button></Link>
+                    </div>
+                )}
             </div>
+            
         </div>
     )
 }

@@ -5,6 +5,9 @@ import google from '../../assets/icons/google.svg'
 import login from '../../assets/images/login/login.svg'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../Providers/AuthProvider'
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const SignUp = () => {
 
@@ -22,9 +25,17 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                return updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photoURL,
+                })
+            })
+            .then(() => {
+                toast.success('Registration successful! Welcome!', { autoClose: 3000 });
             })
             .catch(error => {
                 console.error(error);
+                toast.error('Registration not successful. Please try again!', { autoClose: 3000 });
             })
     }
 
@@ -77,11 +88,8 @@ const SignUp = () => {
                         </Link>
                     </p>
                 </div>
-
-
-
-
             </div>
+           
         </div>
     )
 }
