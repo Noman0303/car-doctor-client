@@ -84,7 +84,9 @@ const Login = () => {
 
                     <div className='mt-7 flex justify-center gap-4'>
                         <img className='bg-[#F5F5F8] rounded-full w-14 h-14 p-3' src={facebook} alt="" />
+                        
                         <img className='bg-[#F5F5F8] rounded-full w-14 h-14 p-3' src={linkedin} alt="" />
+
                         <button onClick={handleGoogleSignIn}><img className='bg-[#F5F5F8] rounded-full w-14 h-14 p-3' src={google} alt="" /></button>
 
                     </div>

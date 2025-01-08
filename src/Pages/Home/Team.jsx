@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import ServiceCard from './ServiceCard';
 import MemberCard from './MemberCard';
 
 const Team = () => {
 
   const[team,setTeam]=useState([]);
   useEffect(()=>{
-    fetch('Team.json')
+    fetch('http://localhost:5000/team')
     .then(res=>res.json())
     .then(data => setTeam(data))
   },[])

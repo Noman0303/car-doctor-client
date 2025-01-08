@@ -14,25 +14,24 @@ const NavBar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                console.log('User logged out successfully');  
+                console.log('User logged out successfully');
                 toast.success('Log Out successful!', { autoClose: 3000 });
             })
             .catch(error => {
-                console.error(error); 
+                console.error(error);
             })
 
     }
 
     const navlink = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/blog'>Blog</NavLink></li>
-        <li><a className=" text-[#FF3811] ">Appointment</a></li>
+        <li><NavLink to='/serviceDetails'>Service Details</NavLink></li>
         {
-            user?.email? 
-            <>
-            <li><NavLink to='/bookings'>My Bookings</NavLink></li>
-            </> :
-            <></>
+            user?.email ?
+                <>
+                    <li><NavLink to='/bookings'>My Bookings</NavLink></li>
+                </> :
+                <></>
         }
     </>
 
@@ -73,8 +72,13 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <button className='btn btn-sm btn-outline text-[#FF3811] text-base mr-4'>Appointment</button>
+                
+
                 {user ? (
                     <div className="flex items-center space-x-4">
+
+
                         <span
                             className="relative"
                             onMouseEnter={() => setIsHovered(true)}
@@ -105,7 +109,7 @@ const NavBar = () => {
                     </div>
                 )}
             </div>
-            
+
         </div>
     )
 }

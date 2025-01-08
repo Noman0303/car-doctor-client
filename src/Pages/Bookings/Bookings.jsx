@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../Providers/AuthProvider'
 import BookingRow from './BookingRow';
+import checkoutImg from '../../assets/images/checkout/checkout.png'
 
 const Bookings = () => {
 
@@ -56,8 +57,8 @@ const Bookings = () => {
                     // update state
                     // alert('update successful')
                     const remaining = bookings.filter(booking => booking._id !== id);
-                    const updated = bookings.find(booking =>booking._id === id);
-                    updated.status ='confirm'
+                    const updated = bookings.find(booking => booking._id === id);
+                    updated.status = 'confirm'
                     const newBookings = [updated, ...remaining];
                     setBookings(newBookings);
                 }
@@ -79,6 +80,18 @@ const Bookings = () => {
 
     return (
         <div>
+            <div className='mt-5 mb-32'>
+                <div className='relative'>
+                    <img src={checkoutImg} className='w-full ' alt="" />
+                    <div className='bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] absolute top-0 w-full h-full rounded-xl'>
+                        <div className='absolute left-2 top-2 md:top-32 md:left-32'>
+                            <h2 className='font-bold text-xl md:text-3xl text-white '>Cart Details</h2>
+                            <p className='text-[#FF3811]'>Home - Product Details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <h2 className='text-center text-4xl my-5'>My Bookings : {bookings.length}</h2>
             <div className="overflow-x-auto my-32">
                 <table className="table">
