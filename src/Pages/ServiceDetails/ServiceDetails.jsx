@@ -38,7 +38,7 @@ const ServiceDetails = () => {
 
         <div className='grid grid-cols-3 mt-32 p-2 gap-6'>
           {/* Details left side */}
-          <div className='col-span-2'>
+          <div className='col-span-2' id='accessibility'>
             <img src={serviceDetailimg} alt="" className='w-full h-auto md:h-[400px] rounded-xl' />
             <h2 className='mt-12 text-4xl font-bold'>Unique Car Engine Service</h2>
             <p className='mt-7'>At Unique Car Engine Service, we specialize in high-quality engine repairs and maintenance to keep your vehicle running smoothly. Our expert technicians use state-of-the-art equipment and advanced techniques to ensure optimal engine performance. Whether it's routine servicing or complex repairs, we are committed to delivering reliable, efficient, and affordable solutions for your car’s engine. </p>
@@ -184,7 +184,7 @@ const ServiceDetails = () => {
 
             {/* help section */}
 
-            <div className='py-16 px-11 mt-7 w-full bg-black text-white rounded-xl text-center'>
+            <div className='py-16 px-11 mt-7 w-full bg-black text-white rounded-xl text-center' id='supportCenter'>
 
               <div className='flex justify-center'>
                 <div className='text-center'>

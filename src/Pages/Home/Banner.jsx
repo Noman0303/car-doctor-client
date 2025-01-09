@@ -15,7 +15,7 @@ const Banner = () => {
 
             <div className="carousel w-full max-h-[600px] rounded-lg ">
 
-                <div id="slide1" className="carousel-item relative w-full ">
+                <div id="slide1" className="carousel-item relative w-full">
                     <img
                         src={img1}
                         className="w-full" />

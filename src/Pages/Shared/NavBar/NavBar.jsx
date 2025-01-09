@@ -67,11 +67,11 @@ const NavBar = () => {
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 gap-1">
                     {navlink}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end flex  flex-col-reverse md:flex-row">
                 <button className='btn btn-sm btn-outline text-[#FF3811] text-base mr-4'>Appointment</button>
                 
 
