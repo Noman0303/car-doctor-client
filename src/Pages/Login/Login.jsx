@@ -3,10 +3,11 @@ import facebook from '../../assets/icons/facebook.svg'
 import linkedin from '../../assets/icons/linkedin.svg'
 import google from '../../assets/icons/google.svg'
 import login from '../../assets/images/login/login.svg'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../Providers/AuthProvider'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
 
 
 
@@ -15,6 +16,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
 
     const { signInUser, signInWithGoogle } = useContext(AuthContext);
+
+    // To track the location/pathname of the servise details before login & navigate there after login
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -25,8 +30,25 @@ const Login = () => {
 
         signInUser(email, password)
             .then(result => {
-                console.log (result.user);
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
                 toast.success('Login successful! Welcome!', { autoClose: 3000 });
+
+                // We want to send the email as the user reference. 
+                const user = { email };
+
+                //  get excess token
+                axios.post('http://localhost:5000/jwt', user, 
+                { withCredentials: true }) // eita dile browser e cookies ta set korbe jodi origin match kore
+                    .then(res => {
+                        console.log(res.data)
+                        if (res.data.success) {
+                            navigate(location?.state ? location?.state : '/');
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error)
+                    })
             })
             .catch(error => {
                 console.error(error);
@@ -40,6 +62,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 toast.success('Google Login successful! Welcome!', { autoClose: 3000 })
+                navigate(location?.state ? location?.state : '/');
             })
             .catch(error => {
                 console.error(error);
@@ -84,7 +107,7 @@ const Login = () => {
 
                     <div className='mt-7 flex justify-center gap-4'>
                         <img className='bg-[#F5F5F8] rounded-full w-14 h-14 p-3' src={facebook} alt="" />
-                        
+
                         <img className='bg-[#F5F5F8] rounded-full w-14 h-14 p-3' src={linkedin} alt="" />
 
                         <button onClick={handleGoogleSignIn}><img className='bg-[#F5F5F8] rounded-full w-14 h-14 p-3' src={google} alt="" /></button>
@@ -97,7 +120,7 @@ const Login = () => {
                     </p>
                 </div>
             </div>
-            
+
         </div>
     )
 }
