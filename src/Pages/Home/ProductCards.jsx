@@ -7,7 +7,6 @@ import StarRating from '../Shared/StarRating';
 const ProductCards = ({ product }) => {
 
     const {  id, name, price, image_url } = product;
-    console.log(product)
 
     return (
         <div className="shadow-lg rounded-lg border-2 bg-[#FFF] p-6 text-center">

@@ -5,13 +5,11 @@ const Team = () => {
 
   const[team,setTeam]=useState([]);
   useEffect(()=>{
-    fetch('http://localhost:5000/team')
+    fetch('https://car-doctor-server-pi-one.vercel.app/team')
     .then(res=>res.json())
     .then(data => setTeam(data))
   },[])
 
-  console.log(team)
-  console.log(setTeam)
   // console.log(data)
 
 
@@ -23,11 +21,10 @@ const Team = () => {
 
       <p className='mt-12 text-2xl'>Number of members : {team.length}</p>
       <div className='mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-        
         {
           team.map(member => 
           <MemberCard
-          key = {member.id}
+          key = {member._id}
           member = {member}>
           </MemberCard>
          )

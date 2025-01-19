@@ -6,13 +6,11 @@ const Products = () => {
 
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://car-doctor-server-pi-one.vercel.app/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
 
-    console.log(products)
-    console.log(setProducts)
     // console.log(data)
 
 

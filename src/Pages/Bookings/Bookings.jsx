@@ -3,34 +3,48 @@ import { AuthContext } from '../../Providers/AuthProvider'
 import BookingRow from './BookingRow';
 import checkoutImg from '../../assets/images/checkout/checkout.png'
 import axios from 'axios';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Bookings = () => {
 
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
+    const axiosSecure = useAxiosSecure();
 
 
     // Fetch bookings by the logged-in user's email if the user exists
 
-    const url = `http://localhost:5000/bookings?email=${user.email}`
+    // const url = `https://car-doctor-server-pi-one.vercel.app/bookings?email=${user?.email}`
+    const url = `/bookings?email=${user?.email}`
+
+
+    //axios die korle {withCredentials:true} referes when the client side send the url data to server it also send the credentials.
+    //fetch die korle {withCredentials:'include'} referes when the client side send the url data to server it also send the credentials.
 
     useEffect(() => {
-        axios.get(url,{withCredentials:true}) //withCredentials true referes when the client side send the url data to server it also send the credentials.
-        .then(res => {
-            setBookings(res.data);
-        })
-        // fetch(url)
+        axiosSecure.get(url)
+        .then(res=>setBookings(res.data));
+        
+
+        // axios.get(url,{withCredentials:true}) 
+        // .then(res => {
+        //     setBookings(res.data);
+        // })
+
+
+        // fetch(url,{credentials:'include'})
         //     .then(res => res.json())
         //     .then(data => {
-        //         console.log(data)
         //         setBookings(data)
         //     })
-    }, [url])
+    }, [url,axiosSecure]);
+
+    // only axiosSecure use korar somoy link er sathe sathe axiosSecure o dependency hisebe use korbo. 
 
     const handleDelete = id => {
         const proceed = confirm('Are you sure you want to delete');
         if (proceed) {
-            fetch(`http://localhost:5000/bookings/${id}`, {
+            fetch(`https://car-doctor-server-pi-one.vercel.app/bookings/${id}`, {
                 method: "DELETE",
 
             })
@@ -47,7 +61,7 @@ const Bookings = () => {
     }
 
     const handleBookingConfirm = id => {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://car-doctor-server-pi-one.vercel.app/bookings/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -73,7 +87,7 @@ const Bookings = () => {
 
     // useEffect(() =>{
     //     if(user?.email){
-    //         fetch(`http://localhost:5000/bookings?email=${user.email}`)
+    //         fetch(`https://car-doctor-server-pi-one.vercel.app/bookings?email=${user.email}`)
     //         .then(res=>res.json())
     //         .then(data=>{
     //             console.log(data)

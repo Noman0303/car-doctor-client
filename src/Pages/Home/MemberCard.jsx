@@ -4,7 +4,6 @@ import React from 'react'
 const MemberCard = ({ member }) => {
 
     const { name, expertise, image } = member;
-    console.log(member);
 
     return (
         <div className="shadow-lg rounded-lg border-2 bg-[#FFF] p-6 text-center">

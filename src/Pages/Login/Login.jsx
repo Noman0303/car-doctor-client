@@ -1,13 +1,14 @@
-import React, { useContext } from 'react'
+// import React, { useContext } from 'react'
 import facebook from '../../assets/icons/facebook.svg'
 import linkedin from '../../assets/icons/linkedin.svg'
 import google from '../../assets/icons/google.svg'
 import login from '../../assets/images/login/login.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../Providers/AuthProvider'
+// import { AuthContext } from '../../Providers/AuthProvider'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
+import useAuth from '../../hooks/useAuth'
 
 
 
@@ -15,7 +16,8 @@ import axios from 'axios'
 
 const Login = () => {
 
-    const { signInUser, signInWithGoogle } = useContext(AuthContext);
+    // const { signInUser, signInWithGoogle } = useContext(AuthContext);
+    const {signInUser, signInWithGoogle} = useAuth();
 
     // To track the location/pathname of the servise details before login & navigate there after login
     const location = useLocation();
@@ -38,7 +40,7 @@ const Login = () => {
                 const user = { email };
 
                 //  get excess token
-                axios.post('http://localhost:5000/jwt', user, 
+                axios.post('https://car-doctor-server-pi-one.vercel.app/jwt', user, 
                 { withCredentials: true }) // eita dile browser e cookies ta set korbe jodi origin match kore
                     .then(res => {
                         console.log(res.data)

@@ -6,7 +6,6 @@ import { Tooltip } from 'react-tooltip'
 const ServiceCard = ({ service }) => {
 
     const { _id, title, price, img } = service;
-    console.log(service)
 
     return (
         <div className="shadow-lg rounded-lg border-2 bg-[#FFF] p-6">

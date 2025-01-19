@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import ServiceCard from './ServiceCard';
+import useServices from '../../hooks/useServices';
 
+// DRY --> Do not repeat yourself
 const Services = () => {
 
-  const[services,setServices]=useState([]);
-  
-  useEffect(()=>{
-    fetch('http://localhost:5000/services')
-    .then(res=>res.json())
-    .then(data => setServices(data))
-  },[])
+  const services = useServices();
 
-  console.log(services)
-  console.log(setServices)
+  // const[services,setServices]=useState([]);
+  
+  // useEffect(()=>{
+  //   fetch('https://car-doctor-server-pi-one.vercel.app/services')
+  //   .then(res=>res.json())
+  //   .then(data => setServices(data))
+  // },[])
+
   // console.log(data)
 
 

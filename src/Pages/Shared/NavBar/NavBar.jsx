@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../../../assets/logo.svg'
-import { AuthContext } from '../../../Providers/AuthProvider'
+// import { AuthContext } from '../../../Providers/AuthProvider'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useAuth from '../../../hooks/useAuth';
 
 
 const NavBar = () => {
 
-    const { user, logOut } = useContext(AuthContext);
+    const {user,logOut} = useAuth();
+    // const { user, logOut } = useContext(AuthContext);
     const [isHovered, setIsHovered] = useState(false);
 
     const handleLogOut = () => {
@@ -73,7 +75,7 @@ const NavBar = () => {
             </div>
             <div className="navbar-end flex  flex-col-reverse md:flex-row">
                 <button className='btn btn-sm btn-outline text-[#FF3811] text-base mr-4'>Appointment</button>
-                
+
 
                 {user ? (
                     <div className="flex items-center space-x-4">
@@ -84,11 +86,16 @@ const NavBar = () => {
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
                         >
-                            <img
-                                src={user.photoURL}
-                                className="rounded-full w-8 h-auto inline-block"
-                                alt="User profile"
-                            />
+                            {console.log(user?.photoURL)}
+                            {user?.photoURL
+                             &&
+                                <img
+                                    src={user.photoURL }
+                                    className="rounded-full w-8 h-auto inline-block"
+                                    alt="User profile"
+                                />
+                            }
+                            
                             {isHovered && (
                                 <span className="absolute right-8 md:right-10 lg:right-10 w-auto p-1 text-xs text-white bg-black rounded-md">
                                     {user.displayName}
